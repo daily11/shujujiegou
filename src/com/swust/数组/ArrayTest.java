@@ -1,6 +1,5 @@
 package com.swust.数组;
 
-import junit.framework.Test;
 
 public class ArrayTest {
 	
