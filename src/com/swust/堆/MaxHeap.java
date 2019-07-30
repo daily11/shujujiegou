@@ -2,6 +2,10 @@ package com.swust.堆;
 
 import com.swust.数组.Array;
 
+/**
+ * 二叉堆是一棵完全二叉树
+ * 堆：所有节点值>=孩子节点值
+ */
 public class MaxHeap<E extends Comparable<E>> {
 
     private Array<E> data;
