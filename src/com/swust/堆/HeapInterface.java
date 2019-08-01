@@ -10,7 +10,7 @@ import com.swust.数组.Array;
  * 左孩子 = index * 2 + 1;
  * 右孩子 = index * 2 + 2;
  */
-public interface HeapInterface<E> {
+public interface HeapInterface<E extends Comparable<E>> {
 
 //	private Array<E> data;
 	
