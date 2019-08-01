@@ -12,7 +12,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
 
     @Override
     public int getSize(){
-        return maxHeap.size();
+        return maxHeap.getSize();
     }
 
     @Override

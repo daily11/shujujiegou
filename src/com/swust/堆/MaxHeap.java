@@ -2,10 +2,6 @@ package com.swust.堆;
 
 import com.swust.数组.Array;
 
-/**
- * 二叉堆是一棵完全二叉树
- * 堆：所有节点值>=孩子节点值
- */
 public class MaxHeap<E extends Comparable<E>> {
 
     private Array<E> data;
@@ -25,7 +21,7 @@ public class MaxHeap<E extends Comparable<E>> {
     }
 
     // 返回堆中的元素个数
-    public int size() {
+    public int getSize() {
         return data.getSize();
     }
 
@@ -59,10 +55,8 @@ public class MaxHeap<E extends Comparable<E>> {
 
     /**
      * 元素上浮
-     * <p>
      * 从最末尾节点开始
      * 变动的子节点与父节点小，则交换位置
-     *
      * @param k 子节点索引值
      */
     private void siftUp(int k) {
@@ -94,7 +88,9 @@ public class MaxHeap<E extends Comparable<E>> {
 
     /**
      * 元素下浮
-     *
+     * 
+     * 从最开始节点开始
+     * max(左孩子，右孩子)与父节点大，则交换位置
      * @param k 子节点索引值
      */
     private void siftDown(int k) {
