@@ -37,6 +37,25 @@ public class Array<E> implements ArrayInterface<E>{
     public boolean isEmpty(){
         return size == 0;
     }
+    
+    // 查找数组中是否有元素e
+    public boolean contains(E e){
+        for(int i = 0 ; i < size ; i ++){
+            if(data[i].equals(e))
+                return true;
+        }
+        return false;
+    }
+    
+    //数组末尾添加一个元素
+    public void add(E e){
+    	
+    	if(size == data.length)
+            resize(2 * data.length);
+    	
+    	data[size] = e;
+    	size++;
+    }
 
     // 在index索引的位置插入一个新元素e
     public void add(int index, E e){
@@ -64,6 +83,13 @@ public class Array<E> implements ArrayInterface<E>{
     public void addFirst(E e){
         add(0, e);
     }
+    
+    // 修改index索引位置的元素为e
+    public void set(int index, E e){
+        if(index < 0 || index >= size)
+            throw new IllegalArgumentException("Set failed. Index is illegal.");
+        data[index] = e;
+    }
 
     // 获取index索引位置的元素
     public E get(int index){
@@ -78,22 +104,6 @@ public class Array<E> implements ArrayInterface<E>{
     
     public E getLast() {
     	return get(size-1);
-    }
-
-    // 修改index索引位置的元素为e
-    public void set(int index, E e){
-        if(index < 0 || index >= size)
-            throw new IllegalArgumentException("Set failed. Index is illegal.");
-        data[index] = e;
-    }
-
-    // 查找数组中是否有元素e
-    public boolean contains(E e){
-        for(int i = 0 ; i < size ; i ++){
-            if(data[i].equals(e))
-                return true;
-        }
-        return false;
     }
 
     // 查找数组中元素e所在的索引，如果不存在元素e，则返回-1

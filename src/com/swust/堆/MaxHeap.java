@@ -60,7 +60,18 @@ public class MaxHeap<E extends Comparable<E>> {
      * @param k 子节点索引值
      */
     private void siftUp(int k) {
-
+//    	递归写法结果：62,41,19,28,30,16,13,17,22,15,
+//    	if(k<1)
+//    		return ;
+//    	
+//    	int parentIndex = parent(k);
+//    	if(data.get(k).compareTo(data.get(parentIndex))>0){
+//    		data.swap(k,parentIndex);
+//    	}
+//    	k=parentIndex;
+//    	siftUp(k);
+    	
+//    	非递归写法结果：62,41,19,28,30,16,13,17,22,15,
         while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0) {
             data.swap(k, parent(k));
             k = parent(k);
@@ -109,6 +120,27 @@ public class MaxHeap<E extends Comparable<E>> {
             k = j;
         }
     }
+    
+    public static void main(String[] args){
+		MaxHeap<Integer> test = new MaxHeap<>();
+		int[] arr = {62,22,19,41,30,16,13,17,28,15};
+		for(int i : arr){
+			System.out.println(i);
+			test.add(i);
+		}
+		
+		for(int i=0;i<arr.length;i++){
+			System.out.print(test.data.get(i)+",");
+		}
+		
+		System.out.println();
+		
+		test.extractMax();
+		
+		for(int i=0;i<arr.length-1;i++){
+			System.out.print(test.data.get(i)+",");
+		}
+	}
 
     // 取出堆中的最大元素，并且替换成元素e
     public E replace(E e) {
