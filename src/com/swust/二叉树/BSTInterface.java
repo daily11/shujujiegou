@@ -8,7 +8,7 @@ package com.swust.二叉树;
  * 	1 大于其左子树的所有节点的值
  *  2 小于其右子树的所有节点的值
  */
-public interface BSTInterface<E> {
+public interface BSTInterface<E extends Comparable<E>> {
 	
 //    private class Node{
 //        public E e;
@@ -24,7 +24,7 @@ public interface BSTInterface<E> {
 //    private Node root;
 //    private int size;
 
-	int getSize();
+	int size();
 	
 	boolean isEmpty();
 	
@@ -39,11 +39,11 @@ public interface BSTInterface<E> {
 	
 /***********************************增开始***************************************/
 	// 向二分搜索树中添加新的元素e
-	void add(E e);
+	void put(E e);
     
 	// 向以node为根的二分搜索树中插入元素e，递归算法
     // 返回插入新节点后二分搜索树的根
-//    private Node add(Node node, E e)
+//    private Node put(Node node, E e)
 /***********************************增结束***************************************/
 	
 	/***********************************遍历开始***************************************/

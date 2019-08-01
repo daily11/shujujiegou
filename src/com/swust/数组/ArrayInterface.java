@@ -23,6 +23,9 @@ public interface ArrayInterface<E> {
     // 查找数组中是否有元素e
     public boolean contains(E e);
     
+    //动态扩容
+    public void resize(int newCapacity);
+    
     /*********************添加元素***********************/
     //数组末尾添加一个元素
     public void add(E e);

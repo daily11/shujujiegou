@@ -40,7 +40,7 @@ public class LinkedList<E> implements LinkedListInterface<E>{
     }
 
     // 获取链表中的元素个数
-    public int getSize(){
+    public int size(){
         return size;
     }
 
@@ -48,7 +48,27 @@ public class LinkedList<E> implements LinkedListInterface<E>{
     public boolean isEmpty(){
         return size == 0;
     }
+    
+    // 查找链表中是否有元素e
+    public boolean contains(E e){
+        Node cur = dummyHead.next;
+        while(cur != null){
+            if(cur.e.equals(e))
+                return true;
+            cur = cur.next;
+        }
+        return false;
+    }
+    
+    public void add(E e){
+    	Node prev = dummyHead;
+        for(int i = 0 ; i < size ; i ++)
+            prev = prev.next;
 
+        prev.next = new Node(e, prev.next);
+        size ++;
+    }
+    
     // 在链表的index(0-based)位置添加新的元素e
     // 在链表中不是一个常用的操作，练习用：）
     public void add(int index, E e){
@@ -109,17 +129,6 @@ public class LinkedList<E> implements LinkedListInterface<E>{
         cur.e = e;
     }
 
-    // 查找链表中是否有元素e
-    public boolean contains(E e){
-        Node cur = dummyHead.next;
-        while(cur != null){
-            if(cur.e.equals(e))
-                return true;
-            cur = cur.next;
-        }
-        return false;
-    }
-
     // 从链表中删除index(0-based)位置的元素, 返回删除的元素
     // 在链表中不是一个常用的操作，练习用：）
     public E remove(int index){
@@ -131,8 +140,7 @@ public class LinkedList<E> implements LinkedListInterface<E>{
             prev = prev.next;
 
         Node retNode = prev.next;
-        prev.next = retNode.next;
-        retNode.next = null;
+        prev.next = prev.next.next;
         size --;
 
         return retNode.e;
@@ -159,9 +167,7 @@ public class LinkedList<E> implements LinkedListInterface<E>{
         }
 
         if(prev.next != null){
-            Node delNode = prev.next;
-            prev.next = delNode.next;
-            delNode.next = null;
+            prev.next = prev.next.next;
             size --;
         }
     }
@@ -170,6 +176,18 @@ public class LinkedList<E> implements LinkedListInterface<E>{
     public void remvoeNode(Node node) {
     	node.e = node.next.e;
     	node.next = node.next.next;
+    }
+    
+    public static void main(String[] args){
+    	LinkedList<Integer> list = new LinkedList<>();
+    	for(int i=0;i<10;i++){
+    		list.add(i);
+    	}
+    	sop(list.toString());
+    }
+    
+    public static void sop(Object obj){
+    	System.out.println(obj);
     }
 
     @Override

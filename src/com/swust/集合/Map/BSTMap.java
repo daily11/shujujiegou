@@ -1,8 +1,8 @@
-package com.swust.集合.二叉树集合;
+package com.swust.集合.Map;
 
 import java.util.ArrayList;
 
-public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
+public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
 
     private class Node{
         public K key;
@@ -26,7 +26,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     }
 
     @Override
-    public int getSize(){
+    public int size(){
         return size;
     }
 
@@ -84,15 +84,6 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
         Node node = getNode(root, key);
         return node == null ? null : node.value;
-    }
-
-    @Override
-    public void set(K key, V newValue){
-        Node node = getNode(root, key);
-        if(node == null)
-            throw new IllegalArgumentException(key + " doesn't exist!");
-
-        node.value = newValue;
     }
 
     // 返回以node为根的二分搜索树的最小值所在的节点
@@ -185,12 +176,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
             BSTMap<String, Integer> map = new BSTMap<>();
             for (String word : words) {
                 if (map.contains(word))
-                    map.set(word, map.get(word) + 1);
+                    map.put(word, map.get(word) + 1);
                 else
                     map.put(word, 1);
             }
 
-            System.out.println("Total different words: " + map.getSize());
+            System.out.println("Total different words: " + map.size());
             System.out.println("Frequency of PRIDE: " + map.get("pride"));
             System.out.println("Frequency of PREJUDICE: " + map.get("prejudice"));
         }

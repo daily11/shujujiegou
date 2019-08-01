@@ -10,7 +10,7 @@ import java.util.*;
  * 二叉树的前序遍历==深度优先
  * 二叉树的层序遍历==广度优先 
  */
-public class BST<E extends Comparable<E>> {
+public class BST<E extends Comparable<E>> implements BSTInterface<E>{
 
     private class Node{
         public E e;
@@ -31,7 +31,7 @@ public class BST<E extends Comparable<E>> {
         size = 0;
     }
 
-    public int getSize(){
+    public int size(){
         return size;
     }
 
@@ -40,13 +40,13 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 向二分搜索树中添加新的元素e
-    public void add(E e){
-        root = add(root, e);
+    public void put(E e){
+        root = put(root, e);
     }
 
     // 向以node为根的二分搜索树中插入元素e，递归算法
     // 返回插入新节点后二分搜索树的根
-    private Node add(Node node, E e){
+    private Node put(Node node, E e){
 
         if(node == null){
             size ++;
@@ -54,9 +54,9 @@ public class BST<E extends Comparable<E>> {
         }
 
         if(e.compareTo(node.e) < 0)
-            node.left = add(node.left, e);
+            node.left = put(node.left, e);
         else if(e.compareTo(node.e) > 0)
-            node.right = add(node.right, e);
+            node.right = put(node.right, e);
 
         return node;
     }

@@ -1,4 +1,4 @@
-package com.swust.集合.二叉树集合;
+package com.swust.集合.Map;
 
 import java.io.BufferedInputStream;
 import java.io.File;

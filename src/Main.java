@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 import com.swust.数组.Array;
 
@@ -8,11 +6,12 @@ import com.swust.数组.Array;
 public class Main {
 	public static void main(String[] args){
 		
-		Array<Integer> array = new Array<>();
-		for(int i=0;i<30;i++){
-			array.add(i);
-		}
-		sop(array.toString());
+		Set<Integer> set = new HashSet<>();
+		
+		
+		TreeMap<String,String> map = new TreeMap<>();
+		
+	
  	}
 	
 	public static void sop(Object obj){

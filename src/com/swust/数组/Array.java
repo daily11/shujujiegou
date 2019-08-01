@@ -175,7 +175,8 @@ public class Array<E> implements ArrayInterface<E>{
     }
 
     // 将数组空间的容量变成newCapacity大小
-    private void resize(int newCapacity){
+    @Override
+    public void resize(int newCapacity){
 
         E[] newData = (E[])new Object[newCapacity];
         for(int i = 0 ; i < size ; i ++)

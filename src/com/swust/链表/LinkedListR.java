@@ -38,7 +38,7 @@ public class LinkedListR<E> implements LinkedListInterface<E> {
 	private E deleteElement;
 	
 	@Override
-	public int getSize() {
+	public int size() {
 		return size;
 	}
 
@@ -227,6 +227,11 @@ public class LinkedListR<E> implements LinkedListInterface<E> {
 		
 		while (!list.isEmpty())
 			System.out.println("removed " + list.removeLast()+" ,链表："+list);
+	}
+
+	@Override
+	public void add(E e) {
+		
 	}
 
 }
