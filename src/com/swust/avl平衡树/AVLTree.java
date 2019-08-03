@@ -1,6 +1,8 @@
+package com.swust.avl平衡树;
+
 import java.util.ArrayList;
 
-public class AVLTree<K extends Comparable<K>, V> {
+public class AVLTree<K extends Comparable<K>, V> implements AVLInterface<K,V>{
 
     private class Node{
         public K key;
@@ -25,7 +27,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         size = 0;
     }
 
-    public int getSize(){
+    public int size(){
         return size;
     }
 
@@ -132,13 +134,13 @@ public class AVLTree<K extends Comparable<K>, V> {
     }
 
     // 向二分搜索树中添加新的元素(key, value)
-    public void add(K key, V value){
-        root = add(root, key, value);
+    public void put(K key, V value){
+        root = put(root, key, value);
     }
 
     // 向以node为根的二分搜索树中插入元素(key, value)，递归算法
     // 返回插入新节点后二分搜索树的根
-    private Node add(Node node, K key, V value){
+    private Node put(Node node, K key, V value){
 
         if(node == null){
             size ++;
@@ -146,9 +148,9 @@ public class AVLTree<K extends Comparable<K>, V> {
         }
 
         if(key.compareTo(node.key) < 0)
-            node.left = add(node.left, key, value);
+            node.left = put(node.left, key, value);
         else if(key.compareTo(node.key) > 0)
-            node.right = add(node.right, key, value);
+            node.right = put(node.right, key, value);
         else // key.compareTo(node.key) == 0
             node.value = value;
 
@@ -158,22 +160,22 @@ public class AVLTree<K extends Comparable<K>, V> {
         // 计算平衡因子
         int balanceFactor = getBalanceFactor(node);
 
-        // 平衡维护
-        // LL
+        /*平衡维护*/
+        //LL--右旋转
         if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)
             return rightRotate(node);
 
-        // RR
+        //RR--左旋转
         if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)
             return leftRotate(node);
 
-        // LR
+        //LR
         if (balanceFactor > 1 && getBalanceFactor(node.left) < 0) {
             node.left = leftRotate(node.left);
             return rightRotate(node);
         }
 
-        // RL
+        //RL
         if (balanceFactor < -1 && getBalanceFactor(node.right) > 0) {
             node.right = rightRotate(node.right);
             return leftRotate(node);
@@ -219,6 +221,21 @@ public class AVLTree<K extends Comparable<K>, V> {
         if(node.left == null)
             return node;
         return minimum(node.left);
+    }
+
+    // 删除掉以node为根的二分搜索树中的最小节点
+    // 返回删除节点后新的二分搜索树的根
+    private Node removeMin(Node node){
+
+        if(node.left == null){
+            Node rightNode = node.right;
+            node.right = null;
+            size --;
+            return rightNode;
+        }
+
+        node.left = removeMin(node.left);
+        return node;
     }
 
     // 从二分搜索树中删除键为key的节点
@@ -317,6 +334,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         return retNode;
     }
 
+    
     public static void main(String[] args){
 
         System.out.println("Pride and Prejudice");
@@ -330,21 +348,15 @@ public class AVLTree<K extends Comparable<K>, V> {
                 if (map.contains(word))
                     map.set(word, map.get(word) + 1);
                 else
-                    map.add(word, 1);
+                    map.put(word, 1);
             }
 
-            System.out.println("Total different words: " + map.getSize());
+            System.out.println("Total different words: " + map.size());
             System.out.println("Frequency of PRIDE: " + map.get("pride"));
             System.out.println("Frequency of PREJUDICE: " + map.get("prejudice"));
 
             System.out.println("is BST : " + map.isBST());
             System.out.println("is Balanced : " + map.isBalanced());
-
-            for(String word: words){
-                map.remove(word);
-                if(!map.isBST() || !map.isBalanced())
-                    throw new RuntimeException();
-            }
         }
 
         System.out.println();

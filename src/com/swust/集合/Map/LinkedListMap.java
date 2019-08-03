@@ -63,7 +63,7 @@ public class LinkedListMap<K, V> implements MapInterface<K, V>{
 	/**
 	 * 1 因为是Map，所以不能遍历到列表末尾直接添加元素，应先判断有没有对应的key值
 	 * 2 列表有key，则更新对应key的value值；
-	 * 3列表没有key，则在对头新增一个节点
+	 * 3列表没有key，则在队头新增一个节点
 	 */
 	@Override
 	public void put(K key, V value) {
