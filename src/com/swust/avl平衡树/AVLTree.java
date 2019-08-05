@@ -301,6 +301,7 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLInterface<K,V>{
             }
         }
 
+        //待删除节点，左右子树均空，既待删除节点是叶子节点，就没必要更新高度与旋转操作了
         if(retNode == null)
             return null;
 
