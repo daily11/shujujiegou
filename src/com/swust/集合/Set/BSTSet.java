@@ -28,7 +28,7 @@ public class BSTSet<E extends Comparable<E>> implements SetInterface<E> {
 	@Override
 	public void add(E e) {
 		if(!bst.contains(e))
-			bst.put(e);
+			bst.add(e);
 	}
 
 	@Override

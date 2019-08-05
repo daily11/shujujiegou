@@ -98,10 +98,8 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
     private Node removeMin(Node node){
 
         if(node.left == null){
-            Node rightNode = node.right;
-            node.right = null;
             size --;
-            return rightNode;
+            return node.right;
         }
 
         node.left = removeMin(node.left);
@@ -137,18 +135,14 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
 
             // 待删除节点左子树为空的情况
             if(node.left == null){
-                Node rightNode = node.right;
-                node.right = null;
                 size --;
-                return rightNode;
+                return node.right;
             }
 
             // 待删除节点右子树为空的情况
             if(node.right == null){
-                Node leftNode = node.left;
-                node.left = null;
                 size --;
-                return leftNode;
+                return node.left;
             }
 
             // 待删除节点左右子树均不为空的情况
