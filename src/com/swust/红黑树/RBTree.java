@@ -1,6 +1,9 @@
+package com.swust.红黑树;
+
 import java.util.ArrayList;
 
-public class RBTree<K extends Comparable<K>, V> {
+
+public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K,V>{
 
     private static final boolean RED = true;
     private static final boolean BLACK = false;
@@ -28,7 +31,7 @@ public class RBTree<K extends Comparable<K>, V> {
         size = 0;
     }
 
-    public int getSize(){
+    public int size(){
         return size;
     }
 
@@ -90,14 +93,14 @@ public class RBTree<K extends Comparable<K>, V> {
     }
 
     // 向红黑树中添加新的元素(key, value)
-    public void add(K key, V value){
-        root = add(root, key, value);
+    public void put(K key, V value){
+        root = put(root, key, value);
         root.color = BLACK; // 最终根节点为黑色节点
     }
 
     // 向以node为根的红黑树中插入元素(key, value)，递归算法
     // 返回插入新节点后红黑树的根
-    private Node add(Node node, K key, V value){
+    private Node put(Node node, K key, V value){
 
         if(node == null){
             size ++;
@@ -105,9 +108,9 @@ public class RBTree<K extends Comparable<K>, V> {
         }
 
         if(key.compareTo(node.key) < 0)
-            node.left = add(node.left, key, value);
+            node.left = put(node.left, key, value);
         else if(key.compareTo(node.key) > 0)
-            node.right = add(node.right, key, value);
+            node.right = put(node.right, key, value);
         else // key.compareTo(node.key) == 0
             node.value = value;
 
@@ -249,10 +252,10 @@ public class RBTree<K extends Comparable<K>, V> {
                 if (map.contains(word))
                     map.set(word, map.get(word) + 1);
                 else
-                    map.add(word, 1);
+                    map.put(word, 1);
             }
 
-            System.out.println("Total different words: " + map.getSize());
+            System.out.println("Total different words: " + map.size());
             System.out.println("Frequency of PRIDE: " + map.get("pride"));
             System.out.println("Frequency of PREJUDICE: " + map.get("prejudice"));
         }
