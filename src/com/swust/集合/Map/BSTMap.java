@@ -34,6 +34,25 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
     public boolean isEmpty(){
         return size == 0;
     }
+    
+    // 返回以node为根节点的二分搜索树中，key所在的节点
+    private Node getNode(Node node, K key){
+
+        if(node == null)
+            return null;
+
+        if(key.equals(node.key))
+            return node;
+        else if(key.compareTo(node.key) < 0)
+            return getNode(node.left, key);
+        else // if(key.compareTo(node.key) > 0)
+            return getNode(node.right, key);
+    }
+
+    @Override
+    public boolean contains(K key){
+        return getNode(root, key) != null;
+    }
 
     // 向二分搜索树中添加新的元素(key, value)
     @Override
@@ -60,25 +79,6 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
         return node;
     }
 
-    // 返回以node为根节点的二分搜索树中，key所在的节点
-    private Node getNode(Node node, K key){
-
-        if(node == null)
-            return null;
-
-        if(key.equals(node.key))
-            return node;
-        else if(key.compareTo(node.key) < 0)
-            return getNode(node.left, key);
-        else // if(key.compareTo(node.key) > 0)
-            return getNode(node.right, key);
-    }
-
-    @Override
-    public boolean contains(K key){
-        return getNode(root, key) != null;
-    }
-
     @Override
     public V get(K key){
 
@@ -93,8 +93,7 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
         return minimum(node.left);
     }
 
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
+    // 删除掉以node为根的二分搜索树中的最小节点,返回删除节点后新的二分搜索树的根
     private Node removeMin(Node node){
 
         if(node.left == null){
@@ -125,26 +124,21 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
 
         if( key.compareTo(node.key) < 0 ){
             node.left = remove(node.left , key);
-            return node;
         }
         else if(key.compareTo(node.key) > 0 ){
             node.right = remove(node.right, key);
-            return node;
         }
         else{   // key.compareTo(node.key) == 0
-
             // 待删除节点左子树为空的情况
             if(node.left == null){
                 size --;
                 return node.right;
             }
-
             // 待删除节点右子树为空的情况
             if(node.right == null){
                 size --;
                 return node.left;
             }
-
             // 待删除节点左右子树均不为空的情况
 
             // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
@@ -153,10 +147,9 @@ public class BSTMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
             successor.right = removeMin(node.right);
             successor.left = node.left;
 
-            node.left = node.right = null;
-
-            return successor;
+            node = successor;
         }
+        return node;
     }
 
     public static void main(String[] args){

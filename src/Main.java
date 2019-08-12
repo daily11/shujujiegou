@@ -13,6 +13,12 @@ public class Main {
 		
 		TreeMap<String,String> map = new TreeMap<>();
 		
+		StringBuilder sb = new StringBuilder();
+		sb.append(1+"!");
+		sb.append("#!");
+		sb.append(2);
+		sop(sb.toString());
+		
  	}
 	
 	public static void sop(Object obj){
