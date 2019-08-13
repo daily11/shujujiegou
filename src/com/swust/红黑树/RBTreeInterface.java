@@ -3,12 +3,18 @@ package com.swust.红黑树;
 import java.util.ArrayList;
 
 /**
- * AVL：是二分搜索树的一种，具有以下特质：
+ * 红黑树：是二分搜索树的一种，具有以下特质：
  * (1)每个节点或者是红色的，或者是黑色的
  * (2)根节点是黑色的
  * (3)每一个叶子节点（最后的空节点）是黑色的
  * (4)如果一个节点是红色的，那么他的孩子节点都是黑色的
  * (5)从任意一个节点到叶子节点，经过的黑色节点是一样的
+ * 
+ * 旋转操作：
+ * 
+ *   黑                     红          (左旋转)       黑               (右旋转)        黑                       (颜色旋转)       红
+ * 红       --->红                    --->      红                        --->      红              红                    --->      黑              黑
+ *           黑                                    红
  */
 public interface RBTreeInterface<K extends Comparable<K>, V> {
 
@@ -49,7 +55,7 @@ public interface RBTreeInterface<K extends Comparable<K>, V> {
     
 	
     //   node                      x
-    //  /   \     左旋转                                /  \
+    //  /   \     左旋转                                   /  \
     // T1    x   --------->    node   T3
     //      / \               /   \
     //     T2 T3             T1   T2
@@ -57,10 +63,10 @@ public interface RBTreeInterface<K extends Comparable<K>, V> {
 	
 	
     //     node                   x
-    //    /   \     右旋转                      /  \
-    //   x    T2   ------->    y  node
-    //  / \                       /  \
-    // y  T1                     T1  T2
+    //    /   \     右旋转                          /  \
+    //   x    T2   ------->     y  node
+    //  / \                        /  \
+    // y  T1                      T1  T2
 //    private Node rightRotate(Node node)
 	
 	
