@@ -95,7 +95,8 @@ public interface BSTInterface<E extends Comparable<E>> {
 	// 删除掉以node为根的二分搜索树中的最小节点
 	// 返回删除节点后新的二分搜索树的根
 	/**
-	 * 1 递归找到最小的节点 2 父节点的左孩子=待删除节点的右孩子
+	 * 1 递归找到最小的节点 
+	 * 2 父节点的左孩子=待删除节点的右孩子
 	 */
 	// private Node removeMin(Node node)
 
@@ -103,14 +104,21 @@ public interface BSTInterface<E extends Comparable<E>> {
 	E removeMax();
 
 	/**
-	 * 1 递归找到最大的节点 2 父节点的右孩子=待删除节点的左孩子
+	 * 1 递归找到最大的节点 
+	 * 2 父节点的右孩子=待删除节点的左孩子
 	 */
 	// private Node removeMax(Node node)
 
 	/**
-	 * 从二分搜索树中删除元素为e的节点 1 递归查询到待删除的节点 2 待删除节点三种状态： 2.1 左子树空 2.2 右子树空 2.3 左右子树非空
-	 * 2.3.1 找到待删除节点cur右子树最小的节点，命名为successor 2.3.2
-	 * successor右子树为（cur右子树，这个右子树已经删除最小节点） 2.3.3 successor左子树为（cur左子树）
+	 * 从二分搜索树中删除元素为e的节点 
+	 * 1 递归查询到待删除的节点 
+	 * 2 待删除节点三种状态： 
+	 * 	2.1 左子树空
+	 *  2.2 右子树空 
+	 *  2.3 左右子树非空
+	 * 		2.3.1  找到待删除节点cur右子树最小的节点，命名为successor 
+	 * 		2.3.2 successor右子树为（cur右子树，这个右子树已经删除最小节点） 
+	 * 		2.3.3 successor左子树为（cur左子树）
 	 * 
 	 * @param e
 	 */
