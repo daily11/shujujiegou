@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * 平衡二叉树：对于任意一个节点，左子树和右子树的高度差不能为超过1
  * 
  * AVL：首先，是二分搜索树；其次，是平衡二叉树
+ * 1 空节点高度默认为1
+ * 2 空节点平衡因子默认为0
+ * 3 空节点默认是平衡的二叉树
  */
 public interface AVLInterface<K extends Comparable<K>, V> {
 
@@ -36,6 +39,7 @@ public interface AVLInterface<K extends Comparable<K>, V> {
 	
 	boolean isEmpty();
 	
+//  private void inOrder(Node node, ArrayList<K> keys)
 	 /**
      * 判断该二叉树是否是一棵二分搜索树
      * 
@@ -45,7 +49,11 @@ public interface AVLInterface<K extends Comparable<K>, V> {
      */
     public boolean isBST();
     
-//    private void inOrder(Node node, ArrayList<K> keys)
+    // 获得节点node的高度
+//  private int getHeight(Node node)
+  
+  // 获得节点node的平衡因子
+//  private int getBalanceFactor(Node node)
     
     /**
      * 判断该二叉树是否是一棵平衡二叉树
@@ -57,15 +65,7 @@ public interface AVLInterface<K extends Comparable<K>, V> {
      */
     public boolean isBalanced();
     
-//    private void inOrder(Node node, ArrayList<K> keys)
-    
 //    private boolean isBalanced(Node node)
-    
-    // 获得节点node的高度
-//    private int getHeight(Node node)
-    
-    // 获得节点node的平衡因子
-//    private int getBalanceFactor(Node node)
     
     // 对节点y进行向右旋转操作，返回旋转后新的根节点x
     //        y                              x
@@ -76,12 +76,14 @@ public interface AVLInterface<K extends Comparable<K>, V> {
     //   / \
     // T1   T2
     /**
-     * 右旋转
+     * 左旋转
      * 
      * 思路：
-     * 旋转完成以后，要注意更新旋转点的高度
+     * 1 传入的参数节点，就是不平衡的节点！
+     * 2 旋转完成以后，要注意更新旋转点的高度
      */
-//    private Node rightRotate(Node y)
+//    private Node leftRotate(Node y)
+    
     
     // 对节点y进行向左旋转操作，返回旋转后新的根节点x
     //    y                             x
@@ -91,15 +93,13 @@ public interface AVLInterface<K extends Comparable<K>, V> {
     //   T2  z                     T1 T2 T3 T4
     //      / \
     //     T3 T4
-    
     /**
-     * 左旋转
+     * 右旋转
      * 
      * 思路：
-     * 1 传入的参数节点，就是不平衡的节点！
-     * 2 旋转完成以后，要注意更新旋转点的高度
+     * 旋转完成以后，要注意更新旋转点的高度
      */
-//    private Node leftRotate(Node y)
+//    private Node rightRotate(Node y)
     
     // 向二分搜索树中添加新的元素(key, value)
     public void put(K key, V value);

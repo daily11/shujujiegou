@@ -19,7 +19,16 @@ public class Main {
 		
 //		Set<Integer> set = new HashSet<>();
 		
+<<<<<<< HEAD
+		StringBuilder sb = new StringBuilder();
+		sb.append(1+"!");
+		sb.append("#!");
+		sb.append(2);
+		sop(sb.toString());
+		
+=======
 	
+>>>>>>> 1c9062f8a3c509ee257569031fafc09f77225bdd
  	}
 	
 	public class TreeNode {

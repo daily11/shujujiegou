@@ -1,11 +1,18 @@
 package com.swust.堆;
 
-import com.swust.数组.Array;
-
 /**
+<<<<<<< HEAD
  * 二叉堆是一棵完全二叉树，通常是一个可以被看做一棵树的数组对象 特性：所有节点值>=孩子节点值
  * 
  * 父节点 = (index - 1) / 2; 左孩子 = index * 2 + 1; 右孩子 = index * 2 + 2;
+=======
+ * 二叉堆是一棵完全二叉树，通常是一个可以被看做一棵树的数组对象 
+ * 特性：所有节点值>=孩子节点值
+ * 
+ * 父节点 = (index - 1) / 2; 
+ * 左孩子 = index * 2 + 1; 
+ * 右孩子 = index * 2 + 2;
+>>>>>>> 534f1f28c36fe67f6ce2075c67892f1a86c626b1
  */
 public interface HeapInterface<E extends Comparable<E>> {
 
@@ -32,8 +39,12 @@ public interface HeapInterface<E extends Comparable<E>> {
 	/**
 	 * 元素上浮 从最末尾节点开始 变动的子节点与父节点大，则交换位置
 	 * 
+<<<<<<< HEAD
 	 * @param k
 	 *            子节点索引值
+=======
+	 * @param k 子节点索引值
+>>>>>>> 534f1f28c36fe67f6ce2075c67892f1a86c626b1
 	 */
 	// private void siftUp(int k);
 
@@ -45,8 +56,12 @@ public interface HeapInterface<E extends Comparable<E>> {
 	 * 
 	 * 从最开始节点开始 max(左孩子，右孩子)与父节点大，则交换位置
 	 * 
+<<<<<<< HEAD
 	 * @param k
 	 *            子节点索引值
+=======
+	 * @param k 子节点索引值
+>>>>>>> 534f1f28c36fe67f6ce2075c67892f1a86c626b1
 	 */
 	// private void siftDown(int k)
 
