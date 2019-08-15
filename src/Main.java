@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.*;
 
 import com.swust.二叉树.BST;
 import com.swust.数组.Array;
@@ -6,7 +6,6 @@ import com.swust.数组.Array;
 
 public class Main {
 	public static void main(String[] args){
-		LinkedList<Integer> list = new LinkedList<>();
  	}
 	
 	public static void run(StringBuilder sb){
