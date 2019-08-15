@@ -1,0 +1,49 @@
+Thread 0xff80df80
+
+  locals:
+
+Thread 0xff80dfe8
+
+  locals:
+
+Thread 0xff80e050
+  at java.lang.Object.wait(J)V (Native Method)
+  at java.lang.ref.ReferenceQueue.remove(J)Ljava/lang/ref/Reference; (ReferenceQueue.java:135)
+  at java.lang.ref.ReferenceQueue.remove()Ljava/lang/ref/Reference; (ReferenceQueue.java:151)
+  at java.lang.ref.Finalizer$FinalizerThread.run()V (Finalizer.java:189)
+
+  locals:
+    objectId=0xff80e0d0, line=1
+    objectId=0xff80e0c0, line=1
+    objectId=0xff80e0d0, line=2
+    objectId=0xff80e050, line=3
+
+Thread 0xff80e0f0
+  at java.lang.Object.wait(J)V (Native Method)
+  at java.lang.Object.wait()V (Object.java:503)
+  at java.lang.ref.Reference$ReferenceHandler.run()V (Reference.java:133)
+
+  locals:
+    objectId=0xff80e158, line=1
+    objectId=0xff80e0f0, line=2
+    objectId=0xff80e158, line=2
+
+Thread 0xff825e88
+  at java.lang.OutOfMemoryError.<init>()V (OutOfMemoryError.java:48)
+  at java.util.Arrays.copyOf([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object; (Arrays.java:2245)
+  at java.util.Arrays.copyOf([Ljava/lang/Object;I)[Ljava/lang/Object; (Arrays.java:2219)
+  at java.util.ArrayList.grow(I)V (ArrayList.java:242)
+  at java.util.ArrayList.ensureExplicitCapacity(I)V (ArrayList.java:216)
+  at java.util.ArrayList.ensureCapacityInternal(I)V (ArrayList.java:208)
+  at java.util.ArrayList.add(Ljava/lang/Object;)Z (ArrayList.java:440)
+  at Main.main([Ljava/lang/String;)V (Main.java:16)
+
+  locals:
+    objectId=0xff0f7a40, line=1
+    objectId=0xff822dc0, line=1
+    objectId=0xff0f7a40, line=2
+    objectId=0xff80e168, line=3
+    objectId=0xff80e168, line=6
+    objectId=0xffb6e5d0, line=6
+    objectId=0xff80e168, line=7
+
