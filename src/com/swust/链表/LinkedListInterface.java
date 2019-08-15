@@ -29,7 +29,7 @@ public interface LinkedListInterface<E> {
 //    }
 //    
 //    private Node dummyHead;
-//    private int size;
+//    private int size;//非下标，标注末尾元素的下一位!
 	
 //    public LinkedList(){
 //        dummyHead = new Node();
@@ -46,6 +46,10 @@ public interface LinkedListInterface<E> {
 	
 	void add(E e);
 	
+	/**
+	 * @param index 下标
+	 * @param e
+	 */
 	void add(int index, E e);
 	
 	void addFirst(E e);
