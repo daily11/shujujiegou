@@ -5,14 +5,11 @@ import com.swust.数组.Array;
 
 
 public class Main {
+	
 	public static void main(String[] args){
 		
  	}
 	
-	public static void run(StringBuilder sb){
-		sb.append("hh");
-		
-	}
 	
 	public static void sop(Object obj){
 		System.out.println(obj);
