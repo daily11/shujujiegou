@@ -10,6 +10,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		Integer[] data = new Integer[]{6,4,9,8,3};
+		
+		Array<Integer> arr = new Array<>(data);
+		for(int i=0;i<arr.getSize();i++){
+			
+		}
+		
+		
 		XuanZe<Integer> maoPao = new XuanZe<>(data);
 		maoPao.sort();
 		maoPao.print();
