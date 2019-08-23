@@ -7,7 +7,7 @@ import java.util.*;
  * 思路：
  * 	（1）外层进行n-1轮排序
  *  （2）内层进行n-1-i轮排序
- *  	2.1）因为外层每一次排序，最大的数都下沉到底部，因此倒数i个元素不要再排序
+ *  	2.1）因为内层每一次排序，最大的数都下沉到底部，因此倒数i个元素不要再排序
  *  	2.2）内层从头到尾两两排序，前者大于后者就交换二者值
  */
 public class MaoPao<E extends Comparable<E>> implements Sorter<E> {
