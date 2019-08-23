@@ -1,10 +1,6 @@
 import java.util.*;
 
-import com.suanfa.排序.MaoPao;
-import com.suanfa.排序.Util;
-import com.suanfa.排序.XuanZe;
-import com.swust.二叉树.BST;
-import com.swust.数组.Array;
+import com.suanfa.排序.*;
 
 
 public class Main {
