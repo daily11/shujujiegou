@@ -8,7 +8,9 @@ public class ChaRu<E extends Comparable<E>> implements Sorter<E> {
 
 	// 构造函数，传入数组的容量capacity构造Array
 	public ChaRu(E[] arr) {
-		data = arr;
+		data = (E[])new Object[arr.length];
+        for(int i = 0 ; i < arr.length ; i ++)
+            data[i] = arr[i];
 	}
 
 	/**
