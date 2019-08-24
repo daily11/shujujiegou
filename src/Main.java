@@ -7,6 +7,9 @@ public class Main {
 	
 	public static void main(String[] args){
 		int[] arr = new int[]{3,4,2,6};
+		KuaiSu<Integer> ks = new KuaiSu<Integer>(Util.intToInteger(arr));
+		ks.sort();
+		ks.print();
  	}
 	
 	

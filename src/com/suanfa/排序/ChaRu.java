@@ -2,7 +2,7 @@ package com.suanfa.排序;
 
 import java.util.*;
 
-public class ChaRu<E extends Comparable<E>> implements Sorter<E> {
+public class ChaRu<E extends Comparable<E>> {
 
 	private E[] data;
 
@@ -20,7 +20,6 @@ public class ChaRu<E extends Comparable<E>> implements Sorter<E> {
 	 * 第二轮：11 9---11 11---9 11 
 	 * 第三轮：9 11 8---9 11 11---9 9 11---8 9 11
 	 */
-	@Override
 	public void sort() {
 		int len = data.length;
 		int preIndex;
@@ -39,7 +38,6 @@ public class ChaRu<E extends Comparable<E>> implements Sorter<E> {
 		}
 	}
 
-	@Override
 	public void print() {
 		int len = data.length;
 		for (int i = 0; i < len; i++) {
@@ -48,9 +46,5 @@ public class ChaRu<E extends Comparable<E>> implements Sorter<E> {
 			else
 				System.out.print(data[i]);
 		}
-	}
-
-	public static void sop(Object obj) {
-		System.out.println(obj);
 	}
 }

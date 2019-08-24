@@ -10,7 +10,7 @@ import java.util.*;
  *  	2.1）因为内层每一次排序，最大的数都下沉到底部，因此倒数i个元素不要再排序
  *  	2.2）内层从头到尾两两排序，前者大于后者就交换二者值
  */
-public class MaoPao<E extends Comparable<E>> implements Sorter<E> {
+public class MaoPao<E extends Comparable<E>>{
 	
     private E[] data;
 
@@ -21,7 +21,6 @@ public class MaoPao<E extends Comparable<E>> implements Sorter<E> {
             data[i] = arr[i];
     }
 
-	@Override
 	public void sort() {
 		for (int i = 0, len = data.length; i < len - 1; ++i) {
 			for (int j = 0; j < len - 1 - i; ++j) {
@@ -34,7 +33,6 @@ public class MaoPao<E extends Comparable<E>> implements Sorter<E> {
 		}
 	}
 
-	@Override
 	public void print() {
 		int len = data.length;
 		for (int i = 0; i < len; i++) {
@@ -43,9 +41,5 @@ public class MaoPao<E extends Comparable<E>> implements Sorter<E> {
 			else
 				System.out.print(data[i]);
 		}
-	}
-
-	public static void sop(Object obj) {
-		System.out.println(obj);
 	}
 }

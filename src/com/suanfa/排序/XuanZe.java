@@ -4,7 +4,7 @@ package com.suanfa.排序;
  * 选择排序法
  *
  */
-public class XuanZe<E extends Comparable<E>> implements Sorter<E> {
+public class XuanZe<E extends Comparable<E>>{
 
 	private E[] data;
 
@@ -15,7 +15,6 @@ public class XuanZe<E extends Comparable<E>> implements Sorter<E> {
             data[i] = arr[i];
     }
 	
-	@Override
 	public void sort() {
 		int min,len = data.length;
 		//1 进行n-1轮排序
@@ -33,7 +32,6 @@ public class XuanZe<E extends Comparable<E>> implements Sorter<E> {
 		}
 	}
 
-	@Override
 	public void print() {
 		int len = data.length;
 		for (int i = 0; i < len; i++) {
@@ -43,10 +41,5 @@ public class XuanZe<E extends Comparable<E>> implements Sorter<E> {
 				System.out.print(data[i]);
 		}
 	}
-	
-	public static void sop(Object obj) {
-		System.out.println(obj);
-	}
-
 
 }
